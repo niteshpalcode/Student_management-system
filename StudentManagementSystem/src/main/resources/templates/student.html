@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body >
+<div class="container">
+		<div class ="row">
+			<h1 class="tables text-center">Student Management System-Basics</h1>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href=@{/students/add} class="btn btn-primary btn-sm mb-4">
+				Add Student
+				</a>
+			</div>
+			
+		</div>
+		
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+			<tr>
+				<th>Sr.No</th>
+				<th>Name</th>
+				<th>Standard</th>
+				<th>Roll Number</th>
+				<th>Marks</th>
+				<th>Task</th>
+			</tr>
+			</thead>
+			<tbody >
+				<tr th:each ="student: ${students}">
+				<td th:text="${student.studentId}"></td>
+				<td th:text="${student.name}"></td>
+				<td th:text="${student.standard}"></td>
+				<td th:text="${student.rollNumber}"></td>
+				<td th:text="${student.marks}"></td>
+				<td><a th:href="@{/students/update/{id}(id=${student.studentId})}"
+				class="btn btn-primary">UPDATE</a>
+				<a th:href="@{/students/delete/{id}(id=${student.studentId})}"
+				 class="btn btn-danger">Delete</a>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

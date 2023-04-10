@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Student</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 container justify-content-center-card">
+		<h1 class="text-center">Student Data</h1>
+			<div class="card-body">
+			<form th:action="@{/students/{id}(id=${student.studentId})}" th:object="${student}" method="POST">
+				<div class="form-group">
+				<label> Student Name</label>
+				<input
+					type="text"
+					th:field="*{name}"
+					placeholder="Name"
+					class="form-control"
+					/>
+				</div>
+				<div class="form-group">
+				<label> Student standard</label>
+				<input
+					type="text"
+					th:field="*{standard}"
+					placeholder="standard"
+					class="form-control"
+					/>
+				</div>
+				<div class="form-group">
+				<label> Student Roll Number</label>
+				<input
+					type="number"
+					th:field="*{rollNumber}"
+					placeholder="Roll Number"
+					class="form-control"
+					/>
+				</div>
+				<div class="form-group">
+				<label> Student Marks</label>
+				<input
+					type="number"
+					th:field="*{marks}"
+					placeholder="Marks"
+					class="form-control"
+					/>
+				</div>
+				<div class="fbox-footer">
+				<button type="submit" class="btn-btn-primary">Add Student</button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html> 
